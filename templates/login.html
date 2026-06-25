@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Login</title>
+
+    <link rel="stylesheet"
+
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h1>Smart Dairy Farm 🐄</h1>
+
+        <form method="POST" action="/login">
+
+            <input type="text"
+
+            name="username"
+
+            placeholder="Enter Username"
+
+            required>
+
+            <input type="password"
+
+            name="password"
+
+            placeholder="Enter Password"
+
+            required>
+
+            <button type="submit">
+
+                Login
+
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

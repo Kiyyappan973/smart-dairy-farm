@@ -1,0 +1,486 @@
+body{
+
+    margin:0;
+
+    padding:0;
+
+    font-family:Arial;
+
+    background:#f1f5f9;
+
+}
+
+
+
+/* NAVBAR */
+
+.navbar{
+
+    background:#0f172a;
+
+    color:white;
+
+    padding:20px 40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.navbar h1{
+
+    margin:0;
+
+    font-size:35px;
+
+}
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin-left:25px;
+
+    font-size:20px;
+
+    transition:0.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#38bdf8;
+
+}
+
+
+
+/* HERO */
+
+.hero{
+
+    text-align:center;
+
+    padding:70px 20px;
+
+}
+
+.hero h1{
+
+    font-size:70px;
+
+    color:#0f172a;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    font-size:25px;
+
+    color:gray;
+
+}
+
+
+
+/* CARDS */
+
+.card{
+
+    width:250px;
+
+    min-height:220px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+
+}
+
+.card{
+
+    background:white;
+
+    width:250px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0px 0px 10px lightgray;
+
+}
+
+.card h1{
+
+    font-size:60px;
+
+    color:green;
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    font-size:22px;
+
+}
+
+
+
+/* TABLE */
+
+.table-box{
+
+    background:white;
+
+    margin:40px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0px 0px 10px lightgray;
+
+}
+
+.table-box h2{
+
+    margin-bottom:20px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+th{
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+th, td{
+
+    padding:15px;
+
+    border-bottom:1px solid lightgray;
+
+    text-align:center;
+
+}
+
+img{
+
+    border-radius:10px;
+
+}
+
+
+
+/* BUTTON */
+
+button{
+
+    background:green;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:0.3s;
+
+}
+
+button:hover{
+
+    background:darkgreen;
+
+}
+
+
+
+/* FORM */
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+input{
+
+    padding:15px;
+
+    border:1px solid lightgray;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+}
+
+
+
+/* CHART */
+
+.chart-box{
+
+    background:white;
+
+    margin:40px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0px 0px 10px lightgray;
+
+}
+
+
+
+/* DARK BUTTON */
+
+.dark-btn{
+
+    background:#2563eb;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+    .hero h1{
+
+        font-size:45px;
+
+    }
+
+    .cards{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+}
+.dark{
+
+    background:#020617;
+
+    color:white;
+
+}
+
+.dark .table-box{
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+.dark .card{
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+.dark input{
+
+    background:#1e293b;
+
+    color:white;
+
+    border:none;
+
+}
+
+.dark table{
+
+    color:white;
+
+}
+
+.dark th{
+
+    background:#1e293b;
+
+}
+.dark-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    margin-left:20px;
+
+}
+.chart-box{
+
+    width:80%;
+
+    margin:auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-top:40px;
+
+}
+table{
+
+    width:90%;
+
+    margin:auto;
+
+    margin-top:40px;
+
+    border-collapse:collapse;
+
+    background:white;
+
+}
+
+th,td{
+
+    padding:15px;
+
+    border:1px solid #ddd;
+
+    text-align:center;
+
+}
+
+th{
+
+    background:#0b132b;
+
+    color:white;
+
+}
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .nav-links{
+
+        margin-top:15px;
+
+    }
+
+    .nav-links a{
+
+        display:block;
+
+        margin:10px 0;
+
+    }
+
+    .hero h1{
+
+        font-size:40px;
+
+    }
+
+    .cards{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .card{
+
+        width:80%;
+
+    }
+
+    table{
+
+        font-size:14px;
+
+    }
+
+    img{
+
+        width:70px;
+
+    }
+
+    .chart-box{
+
+        width:95%;
+
+    }
+
+}

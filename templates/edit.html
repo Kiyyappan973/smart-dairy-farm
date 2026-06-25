@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edit Cow</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <h1>✏ Edit Cow</h1>
+
+    </nav>
+
+    <div class="table-box">
+
+        <form
+
+        action="/update/{{ cow.id }}"
+
+        method="POST">
+
+            <input type="text"
+
+            name="cowname"
+
+            value="{{ cow.name }}">
+
+            <br>
+
+            <input type="text"
+
+            name="breed"
+
+            value="{{ cow.breed }}">
+
+            <br>
+
+            <input type="text"
+
+            name="age"
+
+            value="{{ cow.age }}">
+
+            <br>
+
+            <button type="submit">
+
+                Update Cow
+
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

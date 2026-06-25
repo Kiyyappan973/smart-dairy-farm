@@ -1,0 +1,296 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Smart Dairy Farm</title>
+
+    <link rel="stylesheet"
+
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <h1>🐄 Smart Dairy Farm</h1>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/addcow">Add Cow</a>
+
+            <a href="/addmilk">Add Milk</a>
+
+            <a href="/report">PDF Report</a>
+
+            <a href="/logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <div class="hero">
+
+        <h1>
+
+            Professional Dairy Dashboard 🚀
+
+        </h1>
+
+        <p>
+
+            Manage your dairy farm like a real business
+
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH BAR -->
+
+    <div class="search-box">
+
+        <form method="GET" action="/">
+
+            <input type="text"
+
+            name="search"
+
+            placeholder="Search Cow 🔍">
+
+            <button type="submit">
+
+                Search
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h1>{{ cows|length }}</h1>
+
+            <p>Total Cows</p>
+
+        </div>
+
+        <div class="card">
+
+            <h1>{{ total_milk }}L</h1>
+
+            <p>Total Milk</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Total Income 💰</h2>
+
+            <h1>₹ {{ total_income }}</h1>
+
+        </div>
+
+    </div>
+
+
+    <!-- ANALYTICS CHART -->
+
+    <h2 class="section-title">
+
+        Farm Analytics 📈
+
+    </h2>
+
+    <div class="chart-box">
+
+        <canvas id="milkChart"></canvas>
+
+    </div>
+
+
+    <!-- COW TABLE -->
+
+    <h2 class="section-title">
+
+        Saved Cows 🐄
+
+    </h2>
+
+    <table>
+
+        <tr>
+
+            <th>Image</th>
+
+            <th>Name</th>
+
+            <th>Breed</th>
+
+            <th>Age</th>
+
+            <th>Action</th>
+
+        </tr>
+
+        {% for cow in cows %}
+
+        <tr>
+
+            <td>
+
+                <img src="{{ cow.image }}"
+
+                width="100">
+
+            </td>
+
+            <td>{{ cow.name }}</td>
+
+            <td>{{ cow.breed }}</td>
+
+            <td>{{ cow.age }}</td>
+
+            <td>
+
+                <a href="/edit/{{ cow.id }}">
+
+                    <button>Edit</button>
+
+                </a>
+
+                <a href="/delete/{{ cow.id }}">
+
+                    <button>Delete</button>
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+    <!-- MILK HISTORY -->
+
+    <h2 class="section-title">
+
+        Milk History 🥛
+
+    </h2>
+
+    <table>
+
+        <tr>
+
+            <th>Cow Name</th>
+
+            <th>Liters</th>
+
+            <th>Date</th>
+
+        </tr>
+
+        {% for milk in milks %}
+
+        <tr>
+
+            <td>{{ milk.cowname }}</td>
+
+            <td>{{ milk.liters }}L</td>
+
+            <td>{{ milk.date }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+    <!-- DARK MODE -->
+
+    <script>
+
+    function darkMode(){
+
+        document.body.classList.toggle("dark")
+
+    }
+
+    </script>
+
+
+    <!-- CHART JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+    const ctx = document.getElementById('milkChart');
+
+    new Chart(ctx, {
+
+        type: 'bar',
+
+        data: {
+
+            labels: [
+
+                'Total Cows',
+
+                'Total Milk'
+
+            ],
+
+            datasets: [{
+
+                label: 'Farm Analytics',
+
+                data: [
+
+                    {{ cows|length }},
+
+                    {{ total_milk }}
+
+                ],
+
+                borderWidth: 1
+
+            }]
+
+        },
+
+        options: {
+
+            responsive:true
+
+        }
+
+    });
+
+    </script>
+
+</body>
+
+</html>
+```

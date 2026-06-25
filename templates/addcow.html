@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Cow</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <div class="table-box">
+
+        <h1>Add Cow 🐄</h1>
+
+        <form action="/savecow"
+
+        method="POST"
+
+        enctype="multipart/form-data">
+
+            <input type="text"
+
+            name="cowname"
+
+            placeholder="Cow Name"
+
+            required>
+
+            <br><br>
+
+            <input type="text"
+
+            name="breed"
+
+            placeholder="Breed"
+
+            required>
+
+            <br><br>
+
+            <input type="text"
+
+            name="age"
+
+            placeholder="Age"
+
+            required>
+
+            <br><br>
+
+            <input type="file"
+
+            name="image"
+
+            required>
+
+            <br><br>
+
+            <button type="submit">
+
+                Save Cow
+
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
