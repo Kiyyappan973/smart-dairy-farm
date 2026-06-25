@@ -247,10 +247,10 @@ def login():
         password = request.form['password']
 
         if username == "admin" and password == "1234":
-            return redirect('/')
+            return redirect('/home')
 
     return render_template('login.html')
-@app.route('/')
+@app.route('/home')
 def home():
     return render_template('home.html')
 
