@@ -238,23 +238,18 @@ def savemilk():
 # LOGIN PAGE
 # =========================
 
-@app.route("/login", methods=["GET", "POST"])
-
+@app.route('/login', methods=['GET', 'POST'])
 def login():
 
-    if request.method == "POST":
+    if request.method == 'POST':
 
-        username = request.form.get("username")
-
-        password = request.form.get("password")
+        username = request.form['username']
+        password = request.form['password']
 
         if username == "admin" and password == "1234":
+            return redirect('/home')
 
-            session["user"] = username
-
-            return redirect("/")
-
-    return render_template("login.html")
+    return render_template('login.html')
 
 
 # =========================
