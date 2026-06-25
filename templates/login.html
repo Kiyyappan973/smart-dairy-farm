@@ -1,3 +1,4 @@
+```html id="lf2"
 <!DOCTYPE html>
 <html>
 
@@ -5,46 +6,35 @@
 
     <title>Login</title>
 
-    <link rel="stylesheet"
-
-    href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
 
-    <div class="login-box">
+    <h1>Smart Dairy Farm Login</h1>
 
-        <h1>Smart Dairy Farm 🐄</h1>
+    <form method="POST">
 
-        <form method="POST" action="/login">
+        <input type="text"
+        name="username"
+        placeholder="Username">
 
-            <input type="text"
+        <br><br>
 
-            name="username"
+        <input type="password"
+        name="password"
+        placeholder="Password">
 
-            placeholder="Enter Username"
+        <br><br>
 
-            required>
+        <button type="submit">
 
-            <input type="password"
+            Login
 
-            name="password"
+        </button>
 
-            placeholder="Enter Password"
-
-            required>
-
-            <button type="submit">
-
-                Login
-
-            </button>
-
-        </form>
-
-    </div>
+    </form>
 
 </body>
 
 </html>
+```
