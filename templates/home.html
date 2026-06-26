@@ -11,236 +11,286 @@
     <title>Smart Dairy Farm</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'outfit',sans-serif;
-}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-body{
-    background:#f4f7f5;
-    color:#1f2937;
-}
+    <style>
 
-/* NAVBAR */
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Outfit',sans-serif;
+        }
 
-.navbar{
-    width:100%;
-    padding:22px 60px;
-    background:#0f172a;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 4px 15px rgba(0,0,0,0.15);
-}
+        body{
+            background:#04150d;
+            color:white;
+        }
 
-.logo{
-    font-size:34px;
-    font-weight:700;
-    color:white;
-    letter-spacing:1px;
-}
+        /* NAVBAR */
 
-.nav-links{
-    display:flex;
-    gap:30px;
-}
+        .navbar{
+            width:100%;
+            padding:18px 60px;
+            background:rgba(0,0,0,0.7);
+            backdrop-filter:blur(10px);
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
 
-.nav-links a{
-    color:#e5e7eb;
-    text-decoration:none;
-    font-size:17px;
-    transition:0.3s;
-}
+        .logo{
+            font-size:38px;
+            font-weight:700;
+            color:#6cff75;
+        }
 
-.nav-links a:hover{
-    color:#22c55e;
-}
+        .logo span{
+            color:white;
+        }
 
-/* HERO */
+        .nav-links{
+            display:flex;
+            align-items:center;
+            gap:25px;
+        }
 
-.hero{
-    width:100%;
-    height:420px;
-    background:
-    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-    url('https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    color:white;
-}
+        .nav-links a{
+            text-decoration:none;
+            color:white;
+            font-size:18px;
+            transition:0.3s;
+        }
 
-.hero h1{
-    font-size:65px;
-    font-weight:700;
-}
+        .nav-links a:hover{
+            color:#6cff75;
+        }
 
-.hero p{
-    margin-top:15px;
-    font-size:22px;
-    color:#d1d5db;
-}
+        .logout-btn{
+            padding:10px 20px;
+            border:1px solid #6cff75;
+            border-radius:10px;
+        }
 
-/* DASHBOARD */
+        /* HERO */
 
-.dashboard{
-    padding:60px;
-}
+        .hero{
+            width:100%;
+            height:420px;
+            overflow:hidden;
+            position:relative;
+        }
 
-/* CARDS */
+        .slides{
+            width:300%;
+            height:100%;
+            display:flex;
+            animation:slide 15s infinite;
+        }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
+        .slides img{
+            width:100%;
+            height:420px;
+            object-fit:cover;
+        }
 
-.card{
-    background:white;
-    border-radius:25px;
-    padding:35px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    transition:0.3s;
-    border:1px solid #e5e7eb;
-}
+        @keyframes slide{
 
-.card:hover{
-    transform:translateY(-8px);
-}
+            0%{
+                transform:translateX(0%);
+            }
 
-.card h2{
-    font-size:22px;
-    color:#6b7280;
-    margin-bottom:20px;
-}
+            30%{
+                transform:translateX(0%);
+            }
 
-.card p{
-    font-size:50px;
-    font-weight:700;
-    color:#111827;
-}
+            35%{
+                transform:translateX(-100%);
+            }
 
-/* BUTTONS */
+            65%{
+                transform:translateX(-100%);
+            }
 
-.buttons{
-    margin-top:40px;
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
+            70%{
+                transform:translateX(-200%);
+            }
 
-.buttons a{
-    text-decoration:none;
-    background:#111827;
-    color:white;
-    padding:15px 28px;
-    border-radius:12px;
-    font-size:17px;
-    transition:0.3s;
-    font-weight:500;
-}
+            100%{
+                transform:translateX(-200%);
+            }
 
-.buttons a:hover{
-    background:#22c55e;
-    transform:scale(1.05);
-}
+        }
 
-/* TABLE */
+        /* DASHBOARD */
 
-.table-container{
-    margin-top:50px;
-    overflow-x:auto;
-}
+        .dashboard{
+            padding:40px;
+        }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
+        .top-section{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+            gap:25px;
+            margin-top:-70px;
+            position:relative;
+            z-index:10;
+        }
 
-table th{
-    background:#111827;
-    color:white;
-    padding:20px;
-    font-size:18px;
-    letter-spacing:0.5px;
-}
+        .card{
+            background:rgba(255,255,255,0.06);
+            border:1px solid rgba(255,255,255,0.08);
+            backdrop-filter:blur(12px);
+            border-radius:25px;
+            padding:30px;
+            box-shadow:0 8px 25px rgba(0,0,0,0.4);
+            transition:0.4s;
+        }
 
-table td{
-    padding:20px;
-    text-align:center;
-    border-bottom:1px solid #f1f5f9;
-    font-size:17px;
-}
+        .card:hover{
+            transform:translateY(-8px);
+            border-color:#6cff75;
+        }
 
-table tr:hover{
-    background:#f9fafb;
-}
+        .card h2{
+            font-size:22px;
+            margin-bottom:18px;
+            color:#9dff9d;
+        }
 
-table img{
-    border-radius:15px;
-    object-fit:cover;
-    border:3px solid #e5e7eb;
-}
+        .card p{
+            font-size:45px;
+            font-weight:700;
+        }
 
-/* CHART */
+        /* BUTTONS */
 
-.chart-box{
-    margin-top:50px;
-    background:white;
-    padding:30px;
-    border-radius:25px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
+        .buttons{
+            margin-top:35px;
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
 
-/* MOBILE */
+        .buttons a{
+            text-decoration:none;
+            background:linear-gradient(45deg,#1f9d43,#6cff75);
+            color:black;
+            font-weight:600;
+            padding:15px 28px;
+            border-radius:14px;
+            transition:0.3s;
+        }
 
-@media(max-width:768px){
+        .buttons a:hover{
+            transform:scale(1.05);
+        }
 
-    .navbar{
-        flex-direction:column;
-        gap:15px;
-        text-align:center;
-        padding:20px;
-    }
+        /* CONTENT */
 
-    .nav-links{
-        flex-direction:column;
-        gap:15px;
-    }
+        .content{
+            display:grid;
+            grid-template-columns:1fr 2fr;
+            gap:30px;
+            margin-top:40px;
+        }
 
-    .hero{
-        height:300px;
-        padding:20px;
-    }
+        /* CHART */
 
-    .hero h1{
-        font-size:38px;
-    }
+        .chart-card{
+            background:rgba(255,255,255,0.06);
+            padding:25px;
+            border-radius:25px;
+            border:1px solid rgba(255,255,255,0.08);
+        }
 
-    .hero p{
-        font-size:18px;
-    }
+        /* TABLE */
 
-    .dashboard{
-        padding:20px;
-    }
+        .table-card{
+            background:rgba(255,255,255,0.06);
+            padding:25px;
+            border-radius:25px;
+            border:1px solid rgba(255,255,255,0.08);
+            overflow-x:auto;
+        }
 
-}
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
 
-</style>
-        
+        table th{
+            background:#0d331d;
+            color:#6cff75;
+            padding:18px;
+            font-size:18px;
+        }
+
+        table td{
+            padding:18px;
+            text-align:center;
+            border-bottom:1px solid rgba(255,255,255,0.08);
+        }
+
+        table tr:hover{
+            background:rgba(255,255,255,0.03);
+        }
+
+        table img{
+            width:90px;
+            height:60px;
+            object-fit:cover;
+            border-radius:12px;
+        }
+
+        /* ACTION BUTTONS */
+
+        .edit-btn{
+            background:#28a745;
+            color:white;
+            padding:10px 16px;
+            border-radius:10px;
+            text-decoration:none;
+            margin-right:8px;
+        }
+
+        .delete-btn{
+            background:#dc3545;
+            color:white;
+            padding:10px 16px;
+            border-radius:10px;
+            text-decoration:none;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:900px){
+
+            .top-section{
+                grid-template-columns:1fr;
+            }
+
+            .content{
+                grid-template-columns:1fr;
+            }
+
+            .navbar{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            .nav-links{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -252,12 +302,12 @@ table img{
     <div class="navbar">
 
         <div class="logo">
-             Smart Dairy Farm
+            Smart <span>Dairy Farm</span>
         </div>
 
         <div class="nav-links">
 
-            <a href="/">Home</a>
+            <a href="/">Dashboard</a>
 
             <a href="/addcow">Add Cow</a>
 
@@ -265,19 +315,25 @@ table img{
 
             <a href="/report">Report</a>
 
-            <a href="/logout">Logout</a>
+            <a href="/logout" class="logout-btn">Logout</a>
 
         </div>
 
     </div>
 
-    <!-- HERO SECTION -->
+    <!-- HERO IMAGE SLIDER -->
 
     <div class="hero">
 
-        <h1>Welcome to Smart Dairy Farm</h1>
+        <div class="slides">
 
-     <p>Premium dairy management platform for modern farms</p>
+            <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1400">
+
+            <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=1400">
+
+            <img src="https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?q=80&w=1400">
+
+        </div>
 
     </div>
 
@@ -285,13 +341,13 @@ table img{
 
     <div class="dashboard">
 
-        <!-- CARDS -->
+        <!-- TOP CARDS -->
 
-        <div class="cards">
+        <div class="top-section">
 
             <div class="card">
 
-                <h2>Total Cows 🐄</h2>
+                <h2>Total Cows</h2>
 
                 <p>{{ cows|length }}</p>
 
@@ -299,15 +355,15 @@ table img{
 
             <div class="card">
 
-                <h2>Total Milk 🥛</h2>
+                <h2>Total Milk</h2>
 
-                <p>{{ total_milk }} L</p>
+                <p>{{ total_milk }}L</p>
 
             </div>
 
             <div class="card">
 
-                <h2>Total Income 💰</h2>
+                <h2>Total Income</h2>
 
                 <p>₹ {{ total_income }}</p>
 
@@ -323,131 +379,175 @@ table img{
 
             <a href="/addmilk">+ Add Milk</a>
 
-            <a href="/logout">Logout</a>
-
         </div>
 
-        <!-- TABLE -->
+        <!-- CONTENT -->
 
-        <div class="table-container">
+        <div class="content">
 
-            <table>
+            <!-- CHART -->
 
-                <thead>
+            <div class="chart-card">
 
-                    <tr>
+                <h2 style="margin-bottom:20px;color:#6cff75;">
+                    Milk Production
+                </h2>
 
-                        <th>ID</th>
+                <canvas id="milkChart"></canvas>
 
-                        <th>Name</th>
+            </div>
 
-                        <th>Breed</th>
+            <!-- TABLE -->
 
-                        <th>Age</th>
+            <div class="table-card">
 
-                        <th>Image</th>
-                        <th>Actions</th>
+                <h2 style="color:#6cff75;">
+                    Cows List
+                </h2>
 
-                    </tr>
+                <table>
 
-                </thead>
+                    <thead>
 
-                <tbody>
+                        <tr>
 
-                    {% for cow in cows %}
+                            <th>ID</th>
 
-                    <tr>
+                            <th>Name</th>
 
-                        <td>{{ cow.id }}</td>
+                            <th>Breed</th>
 
-                        <td>{{ cow.name }}</td>
+                            <th>Age</th>
 
-                        <td>{{ cow.breed }}</td>
+                            <th>Image</th>
 
-                        <td>{{ cow.age }}</td>
+                            <th>Actions</th>
 
-                        <td>
+                        </tr>
 
-                            <img src="{{ cow.image }}" width="100" height="80">
+                    </thead>
 
-                        </td>
-<td>
+                    <tbody>
 
-    <a href="/edit/{{ cow.id }}"
-    style="
-    background:#0d6efd;
-    color:white;
-    padding:8px 14px;
-    text-decoration:none;
-    border-radius:8px;
-    margin-right:8px;
-    ">
-    Edit
-    </a>
+                        {% for cow in cows %}
 
-    <a href="/delete/{{ cow.id }}"
-    style="
-    background:#dc3545;
-    color:white;
-    padding:8px 14px;
-    text-decoration:none;
-    border-radius:8px;
-    ">
-    Delete
-    </a>
+                        <tr>
 
-</td>
-                    </tr>
+                            <td>{{ cow.id }}</td>
 
-                    {% endfor %}
+                            <td>{{ cow.name }}</td>
 
-                </tbody>
+                            <td>{{ cow.breed }}</td>
 
-            </table>
+                            <td>{{ cow.age }}</td>
+
+                            <td>
+
+                                <img src="{{ cow.image }}">
+
+                            </td>
+
+                            <td>
+
+                                <a href="/edit/{{ cow.id }}" class="edit-btn">
+                                    Edit
+                                </a>
+
+                                <a href="/delete/{{ cow.id }}" class="delete-btn">
+                                    Delete
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </div>
-<!-- CHART -->
-
-<div class="card" style="margin-top:40px;">
-
-    <h2>Milk Production Chart 📊</h2>
-
-    <canvas id="milkChart"></canvas>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-
-const ctx = document.getElementById('milkChart');
-
-new Chart(ctx, {
-
-    type: 'bar',
-
-    data: {
-
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-
-        datasets: [{
-
-            label: 'Milk Production',
-
-            data: [12, 19, 10, 15, 22, 18, 25],
-
-            borderWidth: 1
-
-        }]
-
-    }
-
-});
-
-</script>
 
     </div>
+
+    <!-- CHART JS -->
+
+    <script>
+
+        const ctx = document.getElementById('milkChart');
+
+        new Chart(ctx, {
+
+            type: 'bar',
+
+            data: {
+
+                labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+
+                datasets: [{
+
+                    label: 'Milk Production',
+
+                    data: [12,19,8,15,25,18,20],
+
+                    backgroundColor: '#6cff75',
+
+                    borderRadius: 10
+
+                }]
+
+            },
+
+            options: {
+
+                plugins: {
+
+                    legend: {
+
+                        labels: {
+
+                            color: 'white'
+
+                        }
+
+                    }
+
+                },
+
+                scales: {
+
+                    x: {
+
+                        ticks: {
+
+                            color: 'white'
+
+                        }
+
+                    },
+
+                    y: {
+
+                        ticks: {
+
+                            color: 'white'
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    </script>
 
 </body>
 
 </html>
+```
