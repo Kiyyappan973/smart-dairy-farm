@@ -250,9 +250,6 @@ def login():
             return redirect('/home')
 
     return render_template('login.html')
-@app.route('/dashboard')
-def dashboard():
-    return render_template('home.html')
 
 
 # =========================
