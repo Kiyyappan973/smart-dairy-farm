@@ -57,7 +57,7 @@
         .hero{
             width:100%;
             height:400px;
-            background:url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=1200') center/cover;
+            background:url('https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg') center/cover;
             display:flex;
             justify-content:center;
             align-items:center;
@@ -239,6 +239,50 @@
                 <h2>Total Income 💰</h2>
                 <p>₹ {{ total_income }}</p>
             </div>
+            ```html
+</div>
+
+<!-- CHART -->
+
+<div class="card" style="margin-top:40px;">
+
+    <h2>Milk Production Chart 📊</h2>
+
+    <canvas id="milkChart"></canvas>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx = document.getElementById('milkChart');
+
+new Chart(ctx, {
+
+    type: 'bar',
+
+    data: {
+
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+
+        datasets: [{
+
+            label: 'Milk Production',
+
+            data: [12, 19, 10, 15, 22, 18, 25],
+
+            borderWidth: 1
+
+        }]
+
+    }
+
+});
+
+</script>
+```
+
 
         </div>
 
