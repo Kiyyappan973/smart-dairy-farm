@@ -1,12 +1,14 @@
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-    <title>Smart Dairy Farm</title>
+    <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Dairy Farm</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -40,10 +42,14 @@
             font-weight:700;
         }
 
+        .nav-links{
+            display:flex;
+            gap:20px;
+        }
+
         .nav-links a{
             color:white;
             text-decoration:none;
-            margin-left:25px;
             font-size:18px;
             transition:0.3s;
         }
@@ -62,8 +68,8 @@
             justify-content:center;
             align-items:center;
             flex-direction:column;
-            color:white;
             text-align:center;
+            color:white;
         }
 
         .hero h1{
@@ -108,10 +114,11 @@
         .card h2{
             color:#198754;
             margin-bottom:15px;
+            font-size:28px;
         }
 
         .card p{
-            font-size:35px;
+            font-size:40px;
             font-weight:700;
         }
 
@@ -140,9 +147,13 @@
 
         /* TABLE */
 
+        .table-container{
+            margin-top:40px;
+            overflow-x:auto;
+        }
+
         table{
             width:100%;
-            margin-top:40px;
             border-collapse:collapse;
             background:white;
             border-radius:15px;
@@ -168,7 +179,7 @@
             background:#f2fff2;
         }
 
-        img{
+        table img{
             border-radius:12px;
             object-fit:cover;
         }
@@ -183,9 +194,8 @@
                 text-align:center;
             }
 
-            .nav-links a{
-                display:block;
-                margin:10px 0;
+            .nav-links{
+                flex-direction:column;
             }
 
             .hero h1{
@@ -200,8 +210,12 @@
                 padding:20px;
             }
 
-            table{
-                font-size:14px;
+            .card h2{
+                font-size:22px;
+            }
+
+            .card p{
+                font-size:32px;
             }
 
         }
@@ -221,22 +235,28 @@
         </div>
 
         <div class="nav-links">
+
             <a href="/">Home</a>
+
             <a href="/addcow">Add Cow</a>
+
             <a href="/addmilk">Milk Entry</a>
+
             <a href="/report">Report</a>
+
             <a href="/logout">Logout</a>
+
         </div>
 
     </div>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
 
     <div class="hero">
 
         <h1>Welcome to Smart Dairy Farm</h1>
 
-        <p>Manage cows, milk and income smartly 🥛</p>
+        <p>Manage cows, milk production and income smartly 🥛</p>
 
     </div>
 
@@ -249,18 +269,27 @@
         <div class="cards">
 
             <div class="card">
+
                 <h2>Total Cows 🐄</h2>
+
                 <p>{{ cows|length }}</p>
+
             </div>
 
             <div class="card">
+
                 <h2>Total Milk 🥛</h2>
+
                 <p>{{ total_milk }} L</p>
+
             </div>
 
             <div class="card">
+
                 <h2>Total Income 💰</h2>
+
                 <p>₹ {{ total_income }}</p>
+
             </div>
 
         </div>
@@ -279,37 +308,57 @@
 
         <!-- TABLE -->
 
-        <table>
+        <div class="table-container">
 
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Breed</th>
-                <th>Age</th>
-                <th>Image</th>
-            </tr>
+            <table>
 
-            {% for cow in cows %}
+                <thead>
 
-            <tr>
+                    <tr>
 
-                <td>{{ cow.id }}</td>
+                        <th>ID</th>
 
-                <td>{{ cow.name }}</td>
+                        <th>Name</th>
 
-                <td>{{ cow.breed }}</td>
+                        <th>Breed</th>
 
-                <td>{{ cow.age }}</td>
+                        <th>Age</th>
 
-                <td>
-                    <img src="{{ cow.image }}" width="100" height="80">
-                </td>
+                        <th>Image</th>
 
-            </tr>
+                    </tr>
 
-            {% endfor %}
+                </thead>
 
-        </table>
+                <tbody>
+
+                    {% for cow in cows %}
+
+                    <tr>
+
+                        <td>{{ cow.id }}</td>
+
+                        <td>{{ cow.name }}</td>
+
+                        <td>{{ cow.breed }}</td>
+
+                        <td>{{ cow.age }}</td>
+
+                        <td>
+
+                            <img src="{{ cow.image }}" width="100" height="80">
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
 
     </div>
 
