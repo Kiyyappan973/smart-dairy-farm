@@ -10,7 +10,11 @@
 
     <title>Smart Dairy Farm</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -24,7 +28,7 @@
         }
 
         body{
-            background:#04150d;
+            background:#07130c;
             color:white;
         }
 
@@ -32,21 +36,21 @@
 
         .navbar{
             width:100%;
-            padding:18px 60px;
+            padding:20px 60px;
             background:rgba(0,0,0,0.7);
             backdrop-filter:blur(10px);
             display:flex;
             justify-content:space-between;
             align-items:center;
-            position:sticky;
+            position:fixed;
             top:0;
             z-index:1000;
         }
 
         .logo{
-            font-size:38px;
-            font-weight:700;
-            color:#6cff75;
+            font-size:42px;
+            font-weight:800;
+            color:#69ff69;
         }
 
         .logo span{
@@ -55,87 +59,91 @@
 
         .nav-links{
             display:flex;
+            gap:30px;
             align-items:center;
-            gap:25px;
         }
 
         .nav-links a{
-            text-decoration:none;
             color:white;
+            text-decoration:none;
             font-size:18px;
+            font-weight:500;
             transition:0.3s;
         }
 
         .nav-links a:hover{
-            color:#6cff75;
+            color:#69ff69;
         }
 
         .logout-btn{
-            padding:10px 20px;
-            border:1px solid #6cff75;
-            border-radius:10px;
+            border:1px solid #69ff69;
+            padding:12px 22px;
+            border-radius:12px;
         }
 
         /* HERO */
-    .hero{
-    width:100%;
-    height:420px;
-    overflow:hidden;
-    position:relative;
-}
 
-.slides{
-    width:100%;
-    height:420px;
-    position:relative;
-}
+        .hero{
+            width:100%;
+            height:450px;
+            overflow:hidden;
+            position:relative;
+            margin-top:90px;
+        }
 
-.slides img{
-    width:100%;
-    height:420px;
-    object-fit:cover;
-    position:absolute;
-    top:0;
-    left:0;
-    opacity:0;
-    animation:fade 12s infinite;
-}
+        .slides{
+            width:100%;
+            height:100%;
+            position:relative;
+        }
 
-.slides img:nth-child(1){
-    animation-delay:0s;
-}
+        .slides img{
+            width:100%;
+            height:450px;
+            object-fit:cover;
+            position:absolute;
+            top:0;
+            left:0;
+            opacity:0;
+            animation:fade 12s infinite;
+        }
 
-.slides img:nth-child(2){
-    animation-delay:4s;
-}
+        .slides img:nth-child(1){
+            animation-delay:0s;
+        }
 
-.slides img:nth-child(3){
-    animation-delay:8s;
-}
+        .slides img:nth-child(2){
+            animation-delay:4s;
+        }
 
-@keyframes fade{
+        .slides img:nth-child(3){
+            animation-delay:8s;
+        }
 
-    0%{
-        opacity:0;
-    }
+        @keyframes fade{
 
-    10%{
-        opacity:1;
-    }
+            0%{
+                opacity:0;
+            }
 
-    30%{
-        opacity:1;
-    }
+            10%{
+                opacity:1;
+            }
 
-    40%{
-        opacity:0;
-    }
+            30%{
+                opacity:1;
+            }
 
-    100%{
-        opacity:0;
-    }
+            40%{
+                opacity:0;
+            }
 
-}
+            100%{
+                opacity:0;
+            }
+
+        }
+
         /* DASHBOARD */
 
         .dashboard{
@@ -143,44 +151,28 @@
         }
 
         .top-section{
-            display:grid;
-            grid-template-columns:1fr 1fr 1fr;
-            gap:25px;
-            margin-top:-70px;
-            position:relative;
-            z-index:10;
+            display:flex;
+            gap:30px;
+            flex-wrap:wrap;
         }
 
-        .card{
-            background:rgba(255,255,255,0.06);
-            border:1px solid rgba(255,255,255,0.08);
-            backdrop-filter:blur(12px);
-            border-radius:25px;
-            padding:30px;
-            box-shadow:0 8px 25px rgba(0,0,0,0.4);
-            transition:0.4s;
+        .welcome-box{
+            flex:1;
+            min-width:320px;
         }
 
-        .card:hover{
-            transform:translateY(-8px);
-            border-color:#6cff75;
+        .welcome-box h1{
+            font-size:55px;
+            margin-bottom:10px;
         }
 
-        .card h2{
-            font-size:22px;
-            margin-bottom:18px;
-            color:#9dff9d;
+        .welcome-box p{
+            color:#bdbdbd;
+            font-size:18px;
+            margin-bottom:30px;
         }
-
-        .card p{
-            font-size:45px;
-            font-weight:700;
-        }
-
-        /* BUTTONS */
 
         .buttons{
-            margin-top:35px;
             display:flex;
             gap:20px;
             flex-wrap:wrap;
@@ -188,56 +180,81 @@
 
         .buttons a{
             text-decoration:none;
-            background:linear-gradient(45deg,#1f9d43,#6cff75);
-            color:black;
-            font-weight:600;
+            color:white;
+            background:linear-gradient(45deg,#22c55e,#15803d);
             padding:15px 28px;
             border-radius:14px;
+            font-size:18px;
+            font-weight:600;
             transition:0.3s;
         }
 
         .buttons a:hover{
-            transform:scale(1.05);
+            transform:translateY(-4px);
         }
 
-        /* CONTENT */
+        /* CARDS */
 
-        .content{
+        .cards{
+            flex:2;
             display:grid;
-            grid-template-columns:1fr 2fr;
-            gap:30px;
-            margin-top:40px;
+            grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.08);
+            backdrop-filter:blur(12px);
+            padding:30px;
+            border-radius:24px;
+            box-shadow:0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        .card h2{
+            color:#d1d5db;
+            margin-bottom:15px;
+            font-size:24px;
+        }
+
+        .card p{
+            font-size:48px;
+            font-weight:800;
+            color:#69ff69;
         }
 
         /* CHART */
 
-        .chart-card{
-            background:rgba(255,255,255,0.06);
-            padding:25px;
-            border-radius:25px;
-            border:1px solid rgba(255,255,255,0.08);
+        .chart-box{
+            margin-top:40px;
+            background:rgba(255,255,255,0.05);
+            padding:30px;
+            border-radius:24px;
+        }
+
+        .chart-box h2{
+            margin-bottom:25px;
         }
 
         /* TABLE */
 
-        .table-card{
-            background:rgba(255,255,255,0.06);
-            padding:25px;
-            border-radius:25px;
-            border:1px solid rgba(255,255,255,0.08);
+        .table-box{
+            margin-top:40px;
+            background:rgba(255,255,255,0.05);
+            padding:30px;
+            border-radius:24px;
             overflow-x:auto;
         }
 
         table{
             width:100%;
             border-collapse:collapse;
-            margin-top:20px;
         }
 
         table th{
-            background:#0d331d;
-            color:#6cff75;
             padding:18px;
+            background:#15803d;
+            color:white;
             font-size:18px;
         }
 
@@ -252,51 +269,53 @@
         }
 
         table img{
-            width:90px;
-            height:60px;
+            width:100px;
+            height:70px;
             object-fit:cover;
             border-radius:12px;
         }
 
-        /* ACTION BUTTONS */
-
         .edit-btn{
-            background:#28a745;
+            background:#16a34a;
             color:white;
-            padding:10px 16px;
+            padding:10px 18px;
             border-radius:10px;
             text-decoration:none;
-            margin-right:8px;
+            margin-right:10px;
         }
 
         .delete-btn{
-            background:#dc3545;
+            background:#dc2626;
             color:white;
-            padding:10px 16px;
+            padding:10px 18px;
             border-radius:10px;
             text-decoration:none;
         }
 
         /* MOBILE */
 
-        @media(max-width:900px){
-
-            .top-section{
-                grid-template-columns:1fr;
-            }
-
-            .content{
-                grid-template-columns:1fr;
-            }
+        @media(max-width:768px){
 
             .navbar{
                 flex-direction:column;
                 gap:20px;
+                padding:20px;
             }
 
-            .nav-links{
-                flex-wrap:wrap;
-                justify-content:center;
+            .hero{
+                height:300px;
+            }
+
+            .slides img{
+                height:300px;
+            }
+
+            .welcome-box h1{
+                font-size:38px;
+            }
+
+            .dashboard{
+                padding:20px;
             }
 
         }
@@ -331,157 +350,151 @@
 
     </div>
 
-        <div class="hero">
+    <!-- HERO -->
 
-    <div class="slides">
+    <div class="hero">
 
-        <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1400&q=80">
+        <div class="slides">
 
-        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1400&q=80">
 
-        <img src="https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1400&q=80">
+
+            <img src="https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?auto=format&fit=crop&w=1400&q=80">
+
+        </div>
 
     </div>
-
-</div>
-
-</div>
-
-</div>
-
-    <!-- HERO IMAGE SLIDER -->
 
     <!-- DASHBOARD -->
 
     <div class="dashboard">
 
-        <!-- TOP CARDS -->
-
         <div class="top-section">
 
-            <div class="card">
+            <div class="welcome-box">
 
-                <h2>Total Cows</h2>
+                <h1>Dashboard</h1>
 
-                <p>{{ cows|length }}</p>
+                <p>Welcome back! Here's what's happening on your dairy farm today.</p>
+
+                <div class="buttons">
+
+                    <a href="/addcow">Add Cow</a>
+
+                    <a href="/addmilk">Add Milk</a>
+
+                </div>
 
             </div>
 
-            <div class="card">
+            <div class="cards">
 
-                <h2>Total Milk</h2>
+                <div class="card">
 
-                <p>{{ total_milk }}L</p>
+                    <h2>Total Cows</h2>
 
-            </div>
+                    <p>{{ cows|length }}</p>
 
-            <div class="card">
+                </div>
 
-                <h2>Total Income</h2>
+                <div class="card">
 
-                <p>₹ {{ total_income }}</p>
+                    <h2>Total Milk</h2>
+
+                    <p>{{ total_milk }}L</p>
+
+                </div>
+
+                <div class="card">
+
+                    <h2>Total Income</h2>
+
+                    <p>₹ {{ total_income }}</p>
+
+                </div>
 
             </div>
 
         </div>
 
-        <!-- BUTTONS -->
+        <!-- CHART -->
 
-        <div class="buttons">
+        <div class="chart-box">
 
-            <a href="/addcow">+ Add Cow</a>
+            <h2>Milk Production</h2>
 
-            <a href="/addmilk">+ Add Milk</a>
+            <canvas id="milkChart"></canvas>
 
         </div>
 
-        <!-- CONTENT -->
+        <!-- TABLE -->
 
-        <div class="content">
+        <div class="table-box">
 
-            <!-- CHART -->
+            <h2 style="margin-bottom:25px;">Cows List</h2>
 
-            <div class="chart-card">
+            <table>
 
-                <h2 style="margin-bottom:20px;color:#6cff75;">
-                    Milk Production
-                </h2>
+                <thead>
 
-                <canvas id="milkChart"></canvas>
+                    <tr>
 
-            </div>
+                        <th>ID</th>
 
-            <!-- TABLE -->
+                        <th>Name</th>
 
-            <div class="table-card">
+                        <th>Breed</th>
 
-                <h2 style="color:#6cff75;">
-                    Cows List
-                </h2>
+                        <th>Age</th>
 
-                <table>
+                        <th>Image</th>
 
-                    <thead>
+                        <th>Actions</th>
 
-                        <tr>
+                    </tr>
 
-                            <th>ID</th>
+                </thead>
 
-                            <th>Name</th>
+                <tbody>
 
-                            <th>Breed</th>
+                    {% for cow in cows %}
 
-                            <th>Age</th>
+                    <tr>
 
-                            <th>Image</th>
+                        <td>{{ cow.id }}</td>
 
-                            <th>Actions</th>
+                        <td>{{ cow.name }}</td>
 
-                        </tr>
+                        <td>{{ cow.breed }}</td>
 
-                    </thead>
+                        <td>{{ cow.age }}</td>
 
-                    <tbody>
+                        <td>
 
-                        {% for cow in cows %}
+                            <img src="{{ cow.image }}">
 
-                        <tr>
+                        </td>
 
-                            <td>{{ cow.id }}</td>
+                        <td>
 
-                            <td>{{ cow.name }}</td>
+                            <a href="/edit/{{ cow.id }}" class="edit-btn">
+                                Edit
+                            </a>
 
-                            <td>{{ cow.breed }}</td>
+                            <a href="/delete/{{ cow.id }}" class="delete-btn">
+                                Delete
+                            </a>
 
-                            <td>{{ cow.age }}</td>
+                        </td>
 
-                            <td>
+                    </tr>
 
-                                <img src="{{ cow.image }}">
+                    {% endfor %}
 
-                            </td>
+                </tbody>
 
-                            <td>
-
-                                <a href="/edit/{{ cow.id }}" class="edit-btn">
-                                    Edit
-                                </a>
-
-                                <a href="/delete/{{ cow.id }}" class="delete-btn">
-                                    Delete
-                                </a>
-
-                            </td>
-
-                        </tr>
-
-                        {% endfor %}
-
-                    </tbody>
-
-                </table>
-
-            </div>
+            </table>
 
         </div>
 
@@ -505,9 +518,9 @@
 
                     label: 'Milk Production',
 
-                    data: [12,19,8,15,25,18,20],
+                    data: [12,19,10,15,22,18,25],
 
-                    backgroundColor: '#6cff75',
+                    backgroundColor: '#22c55e',
 
                     borderRadius: 10
 
@@ -517,13 +530,15 @@
 
             options: {
 
+                responsive:true,
+
                 plugins: {
 
                     legend: {
 
                         labels: {
 
-                            color: 'white'
+                            color:'white'
 
                         }
 
@@ -537,7 +552,7 @@
 
                         ticks: {
 
-                            color: 'white'
+                            color:'white'
 
                         }
 
@@ -547,7 +562,7 @@
 
                         ticks: {
 
-                            color: 'white'
+                            color:'white'
 
                         }
 
