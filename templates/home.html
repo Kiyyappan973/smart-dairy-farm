@@ -6,9 +6,186 @@
 
     <title>Smart Dairy Farm</title>
 
-    <link rel="stylesheet"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#f4fff4;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            width:100%;
+            background:#0f5132;
+            color:white;
+            padding:18px 50px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:30px;
+            font-weight:700;
+        }
+
+        .nav-links a{
+            color:white;
+            text-decoration:none;
+            margin-left:25px;
+            font-size:18px;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:#90ee90;
+        }
+
+        /* HERO */
+
+        .hero{
+            width:100%;
+            height:400px;
+            background:url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=1200') center/cover;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            color:white;
+            text-align:center;
+        }
+
+        .hero h1{
+            font-size:60px;
+            background:rgba(0,0,0,0.5);
+            padding:10px 20px;
+            border-radius:10px;
+        }
+
+        .hero p{
+            margin-top:15px;
+            font-size:22px;
+            background:rgba(0,0,0,0.5);
+            padding:10px 20px;
+            border-radius:10px;
+        }
+
+        /* DASHBOARD */
+
+        .dashboard{
+            padding:50px;
+        }
+
+        .cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+        }
+
+        .card h2{
+            color:#0f5132;
+            margin-bottom:15px;
+        }
+
+        .card p{
+            font-size:28px;
+            font-weight:700;
+        }
+
+        /* BUTTONS */
+
+        .buttons{
+            margin-top:40px;
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .buttons a{
+            text-decoration:none;
+            background:#198754;
+            color:white;
+            padding:15px 30px;
+            border-radius:10px;
+            font-size:18px;
+            transition:0.3s;
+        }
+
+        .buttons a:hover{
+            background:#145c32;
+        }
+
+        /* TABLE */
+
+        table{
+            width:100%;
+            margin-top:40px;
+            border-collapse:collapse;
+            background:white;
+            border-radius:15px;
+            overflow:hidden;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        table th{
+            background:#198754;
+            color:white;
+            padding:15px;
+        }
+
+        table td{
+            padding:15px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            .navbar{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            .hero h1{
+                font-size:35px;
+            }
+
+            .hero p{
+                font-size:18px;
+            }
+
+            .dashboard{
+                padding:20px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -16,279 +193,98 @@
 
     <!-- NAVBAR -->
 
-    <nav class="navbar">
+    <div class="navbar">
 
-        <h1>🐄 Smart Dairy Farm</h1>
-
-        <div class="nav-links">
-
-            <a href="/">Home</a>
-
-            <a href="/addcow">Add Cow</a>
-
-            <a href="/addmilk">Add Milk</a>
-
-            <a href="/report">PDF Report</a>
-
-            <a href="/logout">Logout</a>
-
+        <div class="logo">
+            🐄 Smart Dairy Farm
         </div>
 
-    </nav>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/addcow">Add Cow</a>
+            <a href="/addmilk">Milk Entry</a>
+            <a href="/report">Report</a>
+            <a href="/logout">Logout</a>
+        </div>
 
+    </div>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
 
     <div class="hero">
 
-        <h1>
+        <h1>Welcome to Smart Dairy Farm</h1>
 
-            Professional Dairy Dashboard 🚀
-
-        </h1>
-
-        <p>
-
-            Manage your dairy farm like a real business
-
-        </p>
+        <p>Manage cows, milk and income smartly 🥛</p>
 
     </div>
 
+    <!-- DASHBOARD -->
 
-    <!-- SEARCH BAR -->
+    <div class="dashboard">
 
-    <div class="search-box">
+        <div class="cards">
 
-        <form method="GET" action="/">
+            <div class="card">
+                <h2>Total Cows 🐄</h2>
+                <p>{{ cows|length }}</p>
+            </div>
 
-            <input type="text"
+            <div class="card">
+                <h2>Total Milk 🥛</h2>
+                <p>{{ total_milk }} L</p>
+            </div>
 
-            name="search"
-
-            placeholder="Search Cow 🔍">
-
-            <button type="submit">
-
-                Search
-
-            </button>
-
-        </form>
-
-    </div>
-
-
-    <!-- CARDS -->
-
-    <div class="cards">
-
-        <div class="card">
-
-            <h1>{{ cows|length }}</h1>
-
-            <p>Total Cows</p>
+            <div class="card">
+                <h2>Total Income 💰</h2>
+                <p>₹ {{ total_income }}</p>
+            </div>
 
         </div>
 
-        <div class="card">
+        <div class="buttons">
 
-            <h1>{{ total_milk }}L</h1>
+            <a href="/addcow">+ Add Cow</a>
 
-            <p>Total Milk</p>
-
-        </div>
-
-        <div class="card">
-
-            <h2>Total Income 💰</h2>
-
-            <h1>₹ {{ total_income }}</h1>
+            <a href="/addmilk">+ Add Milk</a>
 
         </div>
 
+        <!-- COW TABLE -->
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Breed</th>
+                <th>Age</th>
+                <th>Image</th>
+            </tr>
+
+            {% for cow in cows %}
+
+            <tr>
+
+                <td>{{ cow.id }}</td>
+
+                <td>{{ cow.name }}</td>
+
+                <td>{{ cow.breed }}</td>
+
+                <td>{{ cow.age }}</td>
+
+                <td>
+                    <img src="{{ cow.image }}" width="80" style="border-radius:10px;">
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
     </div>
-
-
-    <!-- ANALYTICS CHART -->
-
-    <h2 class="section-title">
-
-        Farm Analytics 📈
-
-    </h2>
-
-    <div class="chart-box">
-
-        <canvas id="milkChart"></canvas>
-
-    </div>
-
-
-    <!-- COW TABLE -->
-
-    <h2 class="section-title">
-
-        Saved Cows 🐄
-
-    </h2>
-
-    <table>
-
-        <tr>
-
-            <th>Image</th>
-
-            <th>Name</th>
-
-            <th>Breed</th>
-
-            <th>Age</th>
-
-            <th>Action</th>
-
-        </tr>
-
-        {% for cow in cows %}
-
-        <tr>
-
-            <td>
-
-                <img src="{{ cow.image }}"
-
-                width="100">
-
-            </td>
-
-            <td>{{ cow.name }}</td>
-
-            <td>{{ cow.breed }}</td>
-
-            <td>{{ cow.age }}</td>
-
-            <td>
-
-                <a href="/edit/{{ cow.id }}">
-
-                    <button>Edit</button>
-
-                </a>
-
-                <a href="/delete/{{ cow.id }}">
-
-                    <button>Delete</button>
-
-                </a>
-
-            </td>
-
-        </tr>
-
-        {% endfor %}
-
-    </table>
-
-
-    <!-- MILK HISTORY -->
-
-    <h2 class="section-title">
-
-        Milk History 🥛
-
-    </h2>
-
-    <table>
-
-        <tr>
-
-            <th>Cow Name</th>
-
-            <th>Liters</th>
-
-            <th>Date</th>
-
-        </tr>
-
-        {% for milk in milks %}
-
-        <tr>
-
-            <td>{{ milk.cowname }}</td>
-
-            <td>{{ milk.liters }}L</td>
-
-            <td>{{ milk.date }}</td>
-
-        </tr>
-
-        {% endfor %}
-
-    </table>
-
-
-    <!-- DARK MODE -->
-
-    <script>
-
-    function darkMode(){
-
-        document.body.classList.toggle("dark")
-
-    }
-
-    </script>
-
-
-    <!-- CHART JS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-
-    const ctx = document.getElementById('milkChart');
-
-    new Chart(ctx, {
-
-        type: 'bar',
-
-        data: {
-
-            labels: [
-
-                'Total Cows',
-
-                'Total Milk'
-
-            ],
-
-            datasets: [{
-
-                label: 'Farm Analytics',
-
-                data: [
-
-                    {{ cows|length }},
-
-                    {{ total_milk }}
-
-                ],
-
-                borderWidth: 1
-
-            }]
-
-        },
-
-        options: {
-
-            responsive:true
-
-        }
-
-    });
-
-    </script>
 
 </body>
 
