@@ -5,7 +5,9 @@
 
     <title>Signup</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
 
@@ -21,53 +23,73 @@
             display:flex;
             justify-content:center;
             align-items:center;
-            background:#07130c;
+            background:
+            linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+            url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1600&q=80');
+            background-size:cover;
+            background-position:center;
         }
 
         .box{
-            width:380px;
-            background:rgba(255,255,255,0.05);
-            padding:40px;
+            width:400px;
+            padding:45px;
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.1);
+            backdrop-filter:blur(12px);
             border-radius:25px;
-            backdrop-filter:blur(10px);
+            box-shadow:0 8px 30px rgba(0,0,0,0.5);
         }
 
         h1{
-            color:#69ff69;
-            margin-bottom:25px;
             text-align:center;
+            color:white;
+            margin-bottom:30px;
+            font-size:40px;
         }
 
         input{
             width:100%;
-            padding:15px;
+            padding:16px;
             margin-bottom:20px;
             border:none;
-            border-radius:12px;
-            outline:none;
+            border-radius:14px;
+            background:rgba(255,255,255,0.12);
+            color:white;
             font-size:16px;
+            outline:none;
+        }
+
+        input::placeholder{
+            color:#ddd;
         }
 
         button{
             width:100%;
-            padding:15px;
+            padding:16px;
             border:none;
-            border-radius:12px;
+            border-radius:14px;
             background:#22c55e;
             color:white;
             font-size:18px;
+            font-weight:600;
             cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#16a34a;
+        }
+
+        p{
+            text-align:center;
+            margin-top:22px;
+            color:white;
         }
 
         a{
             color:#69ff69;
             text-decoration:none;
-        }
-
-        p{
-            margin-top:20px;
-            text-align:center;
-            color:white;
+            font-weight:600;
         }
 
     </style>

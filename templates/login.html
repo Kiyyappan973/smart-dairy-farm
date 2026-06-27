@@ -5,37 +5,121 @@
 
     <title>Login</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Outfit',sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:
+            linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+            url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1600&q=80');
+            background-size:cover;
+            background-position:center;
+        }
+
+        .box{
+            width:400px;
+            padding:45px;
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.1);
+            backdrop-filter:blur(12px);
+            border-radius:25px;
+            box-shadow:0 8px 30px rgba(0,0,0,0.5);
+        }
+
+        h1{
+            text-align:center;
+            color:white;
+            margin-bottom:30px;
+            font-size:40px;
+        }
+
+        input{
+            width:100%;
+            padding:16px;
+            margin-bottom:20px;
+            border:none;
+            border-radius:14px;
+            background:rgba(255,255,255,0.12);
+            color:white;
+            font-size:16px;
+            outline:none;
+        }
+
+        input::placeholder{
+            color:#ddd;
+        }
+
+        button{
+            width:100%;
+            padding:16px;
+            border:none;
+            border-radius:14px;
+            background:#22c55e;
+            color:white;
+            font-size:18px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#16a34a;
+        }
+
+        p{
+            text-align:center;
+            margin-top:22px;
+            color:white;
+        }
+
+        a{
+            color:#69ff69;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <h1>Smart Dairy Farm Login</h1>
+    <div class="box">
 
-    <form method="POST">
+        <h1>Login</h1>
 
-        <input type="text"
-        name="username"
-        placeholder="Username">
+        <form method="POST">
 
-        <br><br>
+            <input type="text" name="username" placeholder="Username" required>
 
-        <input type="password"
-        name="password"
-        placeholder="Password">
+            <input type="password" name="password" placeholder="Password" required>
 
-        <br><br>
+            <button type="submit">
+                Login
+            </button>
 
-        <button type="submit">
+        </form>
 
-            Login
+        <p>
+            Don't have account?
+            <a href="/signup">Signup</a>
+        </p>
 
-        </button>
-
-    </form>
-<p>
-    Don't have account?
-    <a href="/signup">Signup</a>
-</p>
+    </div>
 
 </body>
 

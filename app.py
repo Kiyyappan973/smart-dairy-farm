@@ -241,6 +241,41 @@ def savemilk():
     db.session.commit()
 
     return redirect("/")
+# =========================
+# SIGNUP PAGE
+# =========================
+
+@app.route('/signup', methods=['GET', 'POST'])
+
+def signup():
+
+    if request.method == 'POST':
+
+        username = request.form.get('username')
+
+        password = request.form.get('password')
+
+        existing_user = User.query.filter_by(username=username).first()
+
+        if existing_user:
+
+            return "Username already exists"
+
+        new_user = User(
+
+            username=username,
+
+            password=password
+
+        )
+
+        db.session.add(new_user)
+
+        db.session.commit()
+
+        return redirect('/login')
+
+    return render_template('signup.html')
 
 # =========================
 # LOGIN PAGE
