@@ -36,6 +36,15 @@ class Milk(db.Model):
     liters = db.Column(db.String(100))
 
     date = db.Column(db.String(100))
+    
+class User(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    username = db.Column(db.String(100), unique=True)
+
+    password = db.Column(db.String(100))
+
 
 
 # =========================
@@ -233,25 +242,40 @@ def savemilk():
 
     return redirect("/")
 
-
 # =========================
 # LOGIN PAGE
 # =========================
+
 @app.route('/login', methods=['GET', 'POST'])
+
 def login():
 
     if request.method == 'POST':
 
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username')
 
-        if username == "admin" and password == "1234":
+        password = request.form.get('password')
 
-            session["user"] = username
+        user = User.query.filter_by(
 
-            return redirect("/")
+            username=username,
 
-    return render_template("login.html")
+            password=password
+
+        ).first()
+
+        if user:
+
+            session['user'] = username
+
+            return redirect('/')
+
+        else:
+
+            return "Invalid Username or Password"
+
+    return render_template('login.html')
+
 # =========================
 # LOGOUT
 # =========================

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Signup</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Outfit',sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#07130c;
+        }
+
+        .box{
+            width:380px;
+            background:rgba(255,255,255,0.05);
+            padding:40px;
+            border-radius:25px;
+            backdrop-filter:blur(10px);
+        }
+
+        h1{
+            color:#69ff69;
+            margin-bottom:25px;
+            text-align:center;
+        }
+
+        input{
+            width:100%;
+            padding:15px;
+            margin-bottom:20px;
+            border:none;
+            border-radius:12px;
+            outline:none;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:12px;
+            background:#22c55e;
+            color:white;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        a{
+            color:#69ff69;
+            text-decoration:none;
+        }
+
+        p{
+            margin-top:20px;
+            text-align:center;
+            color:white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>Create Account</h1>
+
+        <form method="POST">
+
+            <input type="text" name="username" placeholder="Username" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button type="submit">
+                Signup
+            </button>
+
+        </form>
+
+        <p>
+            Already have account?
+            <a href="/login">Login</a>
+        </p>
+
+    </div>
+
+</body>
+
+</html>
