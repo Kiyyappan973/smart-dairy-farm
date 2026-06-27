@@ -367,36 +367,97 @@
 
         <div class="slider">
 
+    <img src="https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?q=80&w=1400">
+
+    <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=1400">
+
     <img src="https://images.unsplash.com/photo-1545407263-7ff5aa2ad921?q=80&w=1400">
-
-    <img src="https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?q=80&w=1400">
-
-    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1400">
-
+    
 </div>
 
     </section>
 
     <!-- CARDS -->
+     <div class="cards">
 
-    <div class="cards">
+    <div class="card">
 
-        <div class="card">
-            <h2>Total Cows</h2>
-            <p>{{ cows|length }}</p>
-        </div>
+        <div class="card-icon">🐄</div>
 
-        <div class="card">
-            <h2>Total Milk</h2>
-            <p>25 L</p>
-        </div>
+        <h3>Total Cows</h3>
 
-        <div class="card">
-            <h2>Total Income</h2>
-            <p>₹ 0</p>
-        </div>
+        <p>{{ cows|length }}</p>
 
     </div>
+
+    <div class="card">
+
+        <div class="card-icon">🥛</div>
+
+        <h3>Total Milk</h3>
+
+        <p>{{ total_milk }}L</p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-icon">💰</div>
+
+        <h3>Total Income</h3>
+
+        <p>₹ {{ total_income }}</p>
+
+    </div>
+
+</div>
+/* CARD ICONS */
+
+.card-icon{
+
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#1ed760;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    margin-bottom:20px;
+    box-shadow:0 0 25px rgba(30,215,96,0.4);
+
+}
+
+.card{
+
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:25px;
+    padding:35px;
+    transition:0.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 0 30px rgba(30,215,96,0.25);
+
+}
+
+.card h3{
+
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.card p{
+
+    font-size:42px;
+    font-weight:700;
+    color:#1ed760;
+}
+
 
     <!-- TABLE -->
 
