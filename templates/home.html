@@ -30,6 +30,97 @@
             background:#07130c;
             color:white;
         }
+        /* HERO SECTION */
+
+.hero-section{
+    width:100%;
+    min-height:90vh;
+    background:#031b11;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:60px 80px;
+    gap:50px;
+    overflow:hidden;
+}
+
+.hero-left{
+    flex:1;
+}
+
+.hero-left h1{
+    font-size:85px;
+    line-height:95px;
+    color:white;
+    font-weight:800;
+}
+
+.hero-left h1 span{
+    color:#39ff6a;
+}
+
+.hero-left p{
+    color:#cfcfcf;
+    font-size:22px;
+    margin-top:20px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:20px;
+}
+
+.hero-buttons a{
+    text-decoration:none;
+    background:#1ed760;
+    color:white;
+    padding:16px 35px;
+    border-radius:14px;
+    font-size:18px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.hero-buttons a:hover{
+    transform:translateY(-5px);
+    background:#14b84c;
+}
+
+.hero-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-right img{
+    width:100%;
+    max-width:750px;
+    height:500px;
+    object-fit:cover;
+    border-radius:30px;
+    box-shadow:0 0 40px rgba(0,0,0,0.5);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .hero-section{
+        flex-direction:column;
+        padding:40px 20px;
+    }
+
+    .hero-left h1{
+        font-size:55px;
+        line-height:65px;
+    }
+
+    .hero-right img{
+        height:320px;
+    }
+
+}
 
         /* NAVBAR */
 
@@ -399,30 +490,44 @@
     </div>
 
 </div>
+<!-- PROFILE ICON -->
+    <a href="/profile">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+        width="55">
+    </a>
 
-    <!-- HERO -->
+</div>
 
+    <!-- HERO SECTION START -->
 
 <div class="hero">
 
-    <div class="slides">
+    <div class="hero-left">
 
-        <img src="https://images.unsplash.com/photo-1545407263-7ff5aa2ad921?auto=format&fit=crop&w=1600&q=80">
+        <h1>
+            Smart <span>Dairy</span> Farm
+        </h1>
 
-        <img src="https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=1600&q=80">
+        <p>
+            Smart management for modern dairy farms.
+        </p>
 
-        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1600&q=80">
+        <div class="hero-buttons">
+            <a href="/addcow">Add Cow</a>
+            <a href="/addmilk">Milk Entry</a>
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=1400">
 
     </div>
 
 </div>
 
-
-</div>
-
-</div>
-
-    </div>
+<!-- HERO SECTION END -->
 
     <!-- DASHBOARD -->
 
