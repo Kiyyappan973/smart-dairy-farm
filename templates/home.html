@@ -79,6 +79,49 @@
             padding:12px 22px;
             border-radius:12px;
         }
+    
+.profile{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-left:25px;
+    cursor:pointer;
+}
+
+.profile img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:2px solid #4ade80;
+}
+
+.profile span{
+    color:white;
+    font-weight:600;
+}
+
+.dropdown{
+    position:absolute;
+    top:60px;
+    right:0;
+    background:#111827;
+    padding:15px;
+    border-radius:12px;
+    display:none;
+    min-width:140px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+.dropdown a{
+    color:white;
+    text-decoration:none;
+    display:block;
+}
+
+.profile:hover .dropdown{
+    display:block;
+}
 
         /* HERO */
 
@@ -331,21 +374,31 @@
             Smart <span>Dairy Farm</span>
         </div>
 
-        <div class="nav-links">
+<div class="nav-links">
 
-            <a href="/">Dashboard</a>
+    <a href="/">Dashboard</a>
 
-            <a href="/addcow">Add Cow</a>
+    <a href="/addcow">Add Cow</a>
 
-            <a href="/addmilk">Milk Entry</a>
+    <a href="/addmilk">Milk Entry</a>
 
-            <a href="/report">Report</a>
+    <a href="/report">Report</a>
 
-            <a href="/logout" class="logout-btn">Logout</a>
+    <div class="profile">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+        <span>{{ session['user'] }}</span>
+
+        <div class="dropdown">
+
+            <a href="/logout">Logout</a>
 
         </div>
 
     </div>
+
+</div>
 
     <!-- HERO -->
 
