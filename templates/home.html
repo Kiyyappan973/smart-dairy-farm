@@ -147,6 +147,62 @@
     border-radius:30px;
     box-shadow:0 0 40px rgba(0,0,0,0.5);
 }
+/* SLIDER */
+
+.slider{
+    width:100%;
+    max-width:700px;
+    height:500px;
+    overflow:hidden;
+    border-radius:30px;
+    position:relative;
+}
+
+.slider img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:30px;
+    opacity:0;
+    animation:slideShow 12s infinite;
+}
+
+.slider img:nth-child(1){
+    animation-delay:0s;
+}
+
+.slider img:nth-child(2){
+    animation-delay:4s;
+}
+
+.slider img:nth-child(3){
+    animation-delay:8s;
+}
+
+@keyframes slideShow{
+
+    0%{
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    30%{
+        opacity:1;
+    }
+
+    40%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:0;
+    }
+
+}
 
         /* CARDS */
 
@@ -309,10 +365,15 @@
 
         </div>
 
-        <div class="hero-right">
+        <div class="slider">
 
-            <img src="https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?q=80&w=1400">
-        </div>
+    <img src="https://images.unsplash.com/photo-1545407263-7ff5aa2ad921?q=80&w=1400">
+
+    <img src="https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?q=80&w=1400">
+
+    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1400">
+
+</div>
 
     </section>
 
