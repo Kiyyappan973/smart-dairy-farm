@@ -27,24 +27,68 @@
             display:flex;
             justify-content:space-between;
             align-items:center;
-            position:relative;
-            overflow:hidden;
+            background:#0d2017;
         }
 
-        .nav-bg-slider{
+        .logo{
+            font-size:38px;
+            font-weight:800;
+        }
+
+        .logo span{
+            color:#1ed760;
+        }
+
+        nav ul{
+            display:flex;
+            gap:40px;
+            list-style:none;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            color:white;
+            font-size:20px;
+            font-weight:700;
+        }
+
+        .profile img{
+            width:70px;
+            border-radius:50%;
+            border:3px solid #1ed760;
+        }
+
+        .hero{
+            position:relative;
+            overflow:hidden;
+            padding:120px 5%;
+            border-radius:30px;
+            margin:30px;
+        }
+
+        .hero-bg-slider{
             position:absolute;
             top:0;
             left:0;
             width:100%;
             height:100%;
+            z-index:-2;
             background-size:cover;
             background-position:center;
-            animation:slider 15s infinite;
-            z-index:-1;
-            opacity:0.45;
+            animation:heroSlider 15s infinite;
         }
 
-        @keyframes slider{
+        .hero-overlay{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.65);
+            z-index:-1;
+        }
+
+        @keyframes heroSlider{
 
         0%{
         background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuBy1LWYk4XvwZ9b3XgTQtBx5kHFwkDwfYtr6I-VR_lA&s=10');
@@ -64,46 +108,11 @@
 
         }
 
-        .logo{
-            font-size:42px;
-            font-weight:800;
-            color:white;
-            z-index:2;
-        }
-
-        .logo span{
-            color:#1ed760;
-        }
-
-        nav ul{
-            display:flex;
-            gap:40px;
-            list-style:none;
-            z-index:2;
-        }
-
-        nav ul li a{
-            text-decoration:none;
-            color:white;
-            font-size:20px;
-            font-weight:700;
-        }
-
-        .profile img{
-            width:70px;
-            border-radius:50%;
-            border:3px solid #1ed760;
+        .hero h1{
+            font-size:95px;
+            line-height:105px;
             position:relative;
             z-index:2;
-        }
-
-        .hero{
-            padding:80px 5%;
-        }
-
-        .hero h1{
-            font-size:90px;
-            line-height:100px;
         }
 
         .hero h1 span{
@@ -111,17 +120,21 @@
         }
 
         .hero p{
-            margin-top:20px;
+            margin-top:25px;
             font-size:24px;
-            color:#d7d7d7;
-            max-width:700px;
             line-height:40px;
+            max-width:700px;
+            color:#d8d8d8;
+            position:relative;
+            z-index:2;
         }
 
         .hero-buttons{
             margin-top:40px;
             display:flex;
             gap:20px;
+            position:relative;
+            z-index:2;
         }
 
         .hero-buttons a{
@@ -216,8 +229,6 @@
 
     <nav>
 
-        <div class="nav-bg-slider"></div>
-
         <div class="logo">
             Smart <span>Dairy</span> Farm
         </div>
@@ -236,6 +247,10 @@
     </nav>
 
     <section class="hero">
+
+        <div class="hero-bg-slider"></div>
+
+        <div class="hero-overlay"></div>
 
         <h1>
             Smart <span>Dairy</span><br>
