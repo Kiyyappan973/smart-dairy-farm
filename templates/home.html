@@ -1,430 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smart Dairy Farm</title>
+    <title>Smart Dairy Farm</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
+    <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Outfit',sans-serif;
-}
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
 
-body{
-    background:#07130c;
-    color:white;
-}
+        body{
+            background:#03140c;
+            color:white;
+            overflow-x:hidden;
+        }
 
-/* NAVBAR */
-nav{
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:20px 8%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1000;
-    background:rgba(0,0,0,0.45);
-    backdrop-filter:blur(10px);
-}
+        nav{
+            width:100%;
+            height:90px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:0 80px;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:1000;
+            background:rgba(0,0,0,0.45);
+            backdrop-filter:blur(10px);
+        }
 
-.logo{
-    font-size:52px;
-    font-weight:800;
-    color:white;
-    white-space:nowrap;
-}
+        .logo{
+            font-size:48px;
+            font-weight:800;
+        }
 
-.logo span{
-    color:#1ed760;
-}
+        .logo span{
+            color:#20e56f;
+        }
 
-nav ul{
-    display:flex;
-    gap:45px;
-    list-style:none;
-    margin-left:auto;
-    margin-right:40px;
-}
+        nav ul{
+            display:flex;
+            gap:50px;
+            list-style:none;
+        }
 
-/* HERO */
+        nav ul li a{
+            text-decoration:none;
+            color:white;
+            font-size:28px;
+            font-weight:600;
+        }
 
-.hero{
-    width:100%;
-    padding:60px 7%;
-}
-.hero{
-    position:relative;
-    width:100%;
-    height:90vh;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    padding:0 8%;
-}
+        .profile img{
+            width:70px;
+            height:70px;
+            border-radius:50%;
+            border:3px solid #20e56f;
+        }
 
-.hero-slider{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:1;
-}
+        .hero{
+            width:100%;
+            height:100vh;
+            position:relative;
+            display:flex;
+            align-items:center;
+            padding:0 80px;
+            overflow:hidden;
+        }
 
-.slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background-size:cover;
-    background-position:center;
-    opacity:0;
-    animation:slider 15s infinite;
-}
+        .hero::before{
+            content:'';
+            position:absolute;
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            background:
+            linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+            url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1600');
+            background-size:cover;
+            background-position:center;
+            animation:bgzoom 15s infinite alternate;
+        }
 
-/* DARK OVERLAY */
-.slide::after{
-    content:'';
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.55);
-    top:0;
-    left:0;
-}
+        @keyframes bgzoom{
+            0%{
+                transform:scale(1);
+            }
 
-.slide:nth-child(1){
-    background-image:url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=1400');
-    animation-delay:0s;
-}
+            100%{
+                transform:scale(1.08);
+            }
+        }
 
-.slide:nth-child(2){
-    background-image:url('https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?q=80&w=1400');
-    animation-delay:5s;
-}
+        .hero-text{
+            position:relative;
+            z-index:2;
+            max-width:750px;
+        }
 
-.slide:nth-child(3){
-    background-image:url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1400');
-    animation-delay:10s;
-}
+        .hero-text h1{
+            font-size:110px;
+            line-height:120px;
+            font-weight:800;
+        }
 
-@keyframes slider{
+        .hero-text span{
+            color:#20e56f;
+        }
 
-    0%{
-        opacity:0;
-        transform:scale(1);
-    }
+        .hero-text p{
+            margin-top:25px;
+            font-size:28px;
+            line-height:45px;
+            color:#d8d8d8;
+        }
 
-    10%{
-        opacity:1;
-    }
+        .hero-buttons{
+            margin-top:50px;
+            display:flex;
+            gap:25px;
+        }
 
-    30%{
-        opacity:1;
-        transform:scale(1.05);
-    }
+        .hero-buttons a{
+            text-decoration:none;
+            background:#20e56f;
+            color:white;
+            padding:22px 45px;
+            border-radius:18px;
+            font-size:24px;
+            font-weight:700;
+            transition:0.3s;
+        }
 
-    40%{
-        opacity:0;
-    }
+        .hero-buttons a:hover{
+            transform:translateY(-5px);
+            box-shadow:0 10px 25px rgba(32,229,111,0.4);
+        }
 
-    100%{
-        opacity:0;
-    }
+        .dashboard{
+            padding:80px;
+        }
 
-}
+        .dashboard h2{
+            font-size:70px;
+            margin-bottom:40px;
+        }
 
-.hero-text{
-    position:relative;
-    z-index:2;
-    max-width:700px;
-}
+        .cards{
+            display:flex;
+            gap:30px;
+            flex-wrap:wrap;
+        }
 
-.hero-text{
-    margin-top:50px;
-}
+        .card{
+            flex:1;
+            min-width:280px;
+            background:#0a2217;
+            padding:40px;
+            border-radius:25px;
+            border:1px solid rgba(255,255,255,0.05);
+        }
 
-.hero-text h1{
-    font-size:90px;
-    line-height:100px;
-    margin-bottom:20px;
-}
+        .card-icon{
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            background:#20e56f;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:40px;
+            margin-bottom:25px;
+        }
 
-.hero-text h1 span{
-    color:#1ed760;
-}
+        .card h3{
+            font-size:38px;
+            margin-bottom:15px;
+        }
 
-.hero-text p{
-    font-size:28px;
-    color:#d7d7d7;
-    line-height:42px;
-    width:70%;
-}
+        .card p{
+            font-size:60px;
+            font-weight:800;
+            color:#20e56f;
+        }
 
-/* BUTTONS */
+        table{
+            width:100%;
+            margin-top:50px;
+            border-collapse:collapse;
+            overflow:hidden;
+            border-radius:20px;
+        }
 
-.buttons{
-    margin-top:40px;
-    display:flex;
-    gap:20px;
-}
+        th{
+            background:#20e56f;
+            padding:25px;
+            font-size:24px;
+            text-align:left;
+        }
 
-.buttons a{
-    text-decoration:none;
-    background:#1ed760;
-    color:white;
-    padding:18px 40px;
-    border-radius:15px;
-    font-size:22px;
-    font-weight:700;
-    transition:0.3s;
-}
+        td{
+            padding:25px;
+            font-size:22px;
+            background:#081b12;
+        }
 
-.buttons a:hover{
-    transform:translateY(-5px);
-}
+        td img{
+            width:120px;
+            border-radius:15px;
+        }
 
-/* DASHBOARD */
-
-.dashboard{
-    padding:40px 7%;
-}
-
-.dashboard h2{
-    font-size:70px;
-    margin-bottom:50px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:#0f1f17;
-    padding:40px;
-    border-radius:30px;
-    box-shadow:0 0 20px rgba(255,255,255,0.03);
-}
-
-.card-icon{
-    width:75px;
-    height:75px;
-    border-radius:50%;
-    background:#1ed760;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:35px;
-    margin-bottom:25px;
-}
-
-.card h3{
-    font-size:38px;
-    margin-bottom:15px;
-}
-
-.card p{
-    font-size:55px;
-    font-weight:800;
-    color:#1ed760;
-}
-
-/* TABLE */
-
-.table-container{
-    width:100%;
-    overflow-x:auto;
-    margin-top:60px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:1000px;
-    overflow:hidden;
-    border-radius:20px;
-}
-
-th{
-    background:#1ed760;
-    padding:20px;
-    font-size:20px;
-}
-
-td{
-    background:#0f1f17;
-    padding:20px;
-    text-align:center;
-    font-size:18px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-td img{
-    width:90px;
-    height:70px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.hero-images{
-    grid-template-columns:1fr;
-}
-
-.hero-text h1{
-    font-size:60px;
-    line-height:70px;
-}
-
-.hero-text p{
-    width:100%;
-}
-
-nav{
-    flex-direction:column;
-    gap:20px;
-}
-
-nav ul{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-}
-
-</style>
+    </style>
 
 </head>
 
 <body>
 
-<nav>
+    <nav>
 
-<div class="logo">
-Smart <span>Dairy</span> Farm
-</div>
+        <div class="logo">
+            Smart <span>Dairy</span> Farm
+        </div>
 
-<ul>
-<li><a href="/">Dashboard</a></li>
-<li><a href="/addcow">Add Cow</a></li>
-<li><a href="/addmilk">Milk Entry</a></li>
-<li><a href="/report">Report</a></li>
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/addcow">Add Cow</a></li>
+            <li><a href="/addmilk">Milk Entry</a></li>
+            <li><a href="/report">Report</a></li>
+        </ul>
 
-<li>
-<a href="/profile">
-<img class="profile" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-</a>
-</li>
+        <a href="/profile" class="profile">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+        </a>
 
-</ul>
+    </nav>
 
-</nav>
+    <section class="hero">
 
-<section class="hero">
-<div class="hero-slider">
+        <div class="hero-text">
 
+            <h1>
+                Smart <span>Dairy</span><br>
+                Farm
+            </h1>
 
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1400');"></div>
+            <p>
+                Smart management system for modern dairy farms with milk tracking, cow records and income reports.
+            </p>
 
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=1400');"></div>
+            <div class="hero-buttons">
+                <a href="/addcow">🐄 Add Cow</a>
+                <a href="/addmilk">🥛 Milk Entry</a>
+            </div>
 
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?q=80&w=1400');"></div>
-</div>
-<h1>
-Smart <span>Dairy</span><br>
-Farm
-</h1>
+        </div>
 
-<p>
-Smart management system for modern dairy farms with milk tracking, cow records and income reports.
-</p>
+    </section>
 
-<div class="buttons">
-<a href="/addcow">Add Cow</a>
-<a href="/addmilk">Milk Entry</a>
-</div>
+    <section class="dashboard">
 
-</div>
+        <h2>Dashboard</h2>
 
-</section>
+        <div class="cards">
 
-<section class="dashboard">
+            <div class="card">
+                <div class="card-icon">🐄</div>
+                <h3>Total Cows</h3>
+                <p>2</p>
+            </div>
 
-<h2>Dashboard</h2>
+            <div class="card">
+                <div class="card-icon">🥛</div>
+                <h3>Total Milk</h3>
+                <p>25L</p>
+            </div>
 
-<div class="cards">
+            <div class="card">
+                <div class="card-icon">💰</div>
+                <h3>Total Income</h3>
+                <p>₹0</p>
+            </div>
 
-<div class="card">
-<div class="card-icon">🐄</div>
-<h3>Total Cows</h3>
-<p>2</p>
-</div>
+        </div>
 
-<div class="card">
-<div class="card-icon">🥛</div>
-<h3>Total Milk</h3>
-<p>25L</p>
-</div>
+        <table>
 
-<div class="card">
-<div class="card-icon">💰</div>
-<h3>Total Income</h3>
-<p>₹0</p>
-</div>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Breed</th>
+                <th>Age</th>
+                <th>Image</th>
+            </tr>
 
-</div>
+            <tr>
+                <td>1</td>
+                <td>shenbagam</td>
+                <td>nattu maadu</td>
+                <td>5</td>
+                <td>
+                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=500">
+                </td>
+            </tr>
 
-<div class="table-container">
+            <tr>
+                <td>2</td>
+                <td>lakshmi</td>
+                <td>pasu</td>
+                <td>6</td>
+                <td>
+                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=500">
+                </td>
+            </tr>
 
-<table>
+        </table>
 
-<tr>
-<th>ID</th>
-<th>Name</th>
-<th>Breed</th>
-<th>Age</th>
-<th>Image</th>
-</tr>
-
-<tr>
-<td>1</td>
-<td>shenbagam</td>
-<td>nattu maadu</td>
-<td>5</td>
-<td>
-<img src="https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?q=80&w=1400">
-</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>lakshmi</td>
-<td>pasu</td>
-<td>6</td>
-<td>
-<img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1400">
-</td>
-</tr>
-
-</table>
-
-</div>
-
-</section>
+    </section>
 
 </body>
+
 </html>
